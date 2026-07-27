@@ -11,7 +11,7 @@ const Manager = () => {
     const [passwordArray, setPasswordArray] = useState([])
 
     const getPassword = async () => {
-        const req = await fetch("http://localhost:3000/")
+        const req = await fetch("https://passop-mongo-1-ysva.onrender.com/")
         let password = await req.json()
         setPasswordArray(password)
         console.log(password);
@@ -33,7 +33,7 @@ const Manager = () => {
             toast.error("Please fill all fields")
             return;
         }
-        let res = await fetch("http://localhost:3000/", {
+        let res = await fetch("https://passop-mongo-1-ysva.onrender.com/", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const Manager = () => {
         setPasswordArray([...passwordArray, { ...form, id: uuidv4() }]);
         // localStorage.setItem("password", JSON.stringify([...passwordArray, {...form, id: uuidv4()}]))
         setForm({ site: "", username: "", password: "" })
-         await fetch("http://localhost:3000/", {
+         await fetch("https://passop-mongo-1-ysva.onrender.com/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const Manager = () => {
             // localStorage.setItem("password", JSON.stringify(passwordArray.filter((item) => {
             //     return item.id !== id
             // })))
-            let res = await fetch("http://localhost:3000/", {
+            let res = await fetch("https://passop-mongo-1-ysva.onrender.com/", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
